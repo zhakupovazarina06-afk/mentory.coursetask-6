@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Форма</title>
+</head>
+<body>
+
+  <form id="myForm">
+
+    <input type="text" name="username" placeholder="Введите имя">
+
+    <select name="country">
+      <option value="">Выберите страну</option>
+      <option value="kz">Казахстан</option>
+      <option value="ru">Россия</option>
+    </select>
+
+    <textarea name="comment" placeholder="Комментарий"></textarea>
+
+    <button type="submit">Отправить</button>
+
+  </form>
+
+  <script>
+   
+    const form = document.getElementById("myForm");
+ 
+    form.addEventListener("input", function (event) {
+      console.log(event.target.name + ":", event.target.value);
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // отменяем перезагрузку страницы
+
+      const formData = {
+        username: form.username.value,
+        country: form.country.value,
+        comment: form.comment.value
+      };
+
+      console.log("Вся форма:", formData);
+    });
+  </script>
+
+</body>
+</html>
